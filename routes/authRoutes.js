@@ -13,9 +13,9 @@ module.exports = (app) => {
     }));
 
     //at this point the code will be at hand for the server to use
-    app.get('/auth/google/callback', passport.authenticate('google'), () =>{});
+    app.get('/auth/google/callback', passport.authenticate('google'), (req, res) =>{res.redirect("/surveys")});
 
-    app.get('/api/user', (req, res) => {
+    app.get('/api/current_user', (req, res) => {
         res.send(req.user);
     });
 
@@ -23,6 +23,7 @@ module.exports = (app) => {
         // passport automatically attacts user to the request object
         // this logout() function is also provioded by passport 
         req.logout();
-        res.send("you logged out");
+        //res.send("you logged out");
+        res.redirect('/');
     })
 };
