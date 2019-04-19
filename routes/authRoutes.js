@@ -3,7 +3,7 @@ const passport = require("passport");
 module.exports = (app) => {
 
     // just a test to ensure that the rewuest actually works
-    app.get('/', (req, res) => res.send('Live from Emaily!'));
+    //app.get('/', (req, res) => res.send('Live from Emaily!'));
 
     //this is the set up for the callback from when the 
     //user grants permission for the usage of their google authentication
