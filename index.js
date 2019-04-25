@@ -4,9 +4,12 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+
+
 // execytes our command to create our user model
 // always declare your model first before usage within passport js
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 mongoose.connect(keys.mongoURI);
 
@@ -29,6 +32,7 @@ app.use(passport.session());
 // a shortcut to avoid extra/superfluous code
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // express serves up main.js file for the bundled up react app
