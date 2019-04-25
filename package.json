@@ -8,11 +8,10 @@
   },
   "scripts": {
     "start": "node index.js",
-    "server": "node index.js --ignore client",
+    "server": "nodemon index.js --ignore client",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-    
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --client"
   },
   "author": "stanv",
   "license": "ISC",
@@ -25,6 +24,7 @@
     "nodemon": "^1.18.11",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^6.29.0"
   },
   "devDependencies": {},
