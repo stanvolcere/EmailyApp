@@ -23,7 +23,9 @@ class SurveyForm extends Component {
     render() {
         return (
             <div>
+            
                 <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}> 
+                    
                     {this.renderFields()}
                     <Link to="/surveys" className="red btn-flat white-text">
                         Cancel <i className="material-icons right">cancel</i>
@@ -48,7 +50,7 @@ function validate(values) {
     //     // field in the form
     //     errors.title = "You must provide a title";
     // }
-    errors.emails = validateEmails(values.emails || "");
+    errors.recipients = validateEmails(values.recipients || "");
 
 
     _.each(formFields, ({ name }) => {
@@ -65,6 +67,7 @@ function validate(values) {
 
 export default reduxForm({
     validate,
+    // tells redux form to dump the values previpously added to the fields
     destroyOnUnmount: false,
     // this tells redux how to store this form in the store
     form: 'surveyForm'
