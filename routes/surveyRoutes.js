@@ -12,8 +12,12 @@ const Survey = mongoose.model('surveys');
 
 module.exports = (app) => {
 
-    app.get('api/surveys', (req, res) => {
-        Survey.find({ });
+    app.get('/api/surveys', requireLogin ,async (req, res) => {
+        const surveys = await Survey.find({ _user: req.user })
+            // this select statemnets tells mongo to not return the recipinets property from the table 
+            .select({recipients: false});
+        
+        res.send(surveys);
     });
 
     app.post('/api/surveys/webhooks', (req, res) => {
