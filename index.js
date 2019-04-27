@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === 'production') {
     // request then it'll pass it over to main.js
     // which is the React side of the application
     // the bottom is the catch all case for our routes
-    app.get("*", (req, res) => {
+    app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
