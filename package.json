@@ -10,8 +10,9 @@
     "start": "node index.js",
     "server": "nodemon index.js --ignore client",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --client"
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --client",
+    "webhook": "lt --port 5000 -s stanvolcere"
   },
   "author": "stanv",
   "license": "ISC",
@@ -20,10 +21,13 @@
     "concurrently": "^4.1.0",
     "cookie-session": "^1.3.3",
     "express": "^4.16.4",
+    "localtunnel": "^1.9.1",
+    "lodash": "^4.17.11",
     "mongoose": "^5.5.1",
     "nodemon": "^1.18.11",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^4.2.0",
     "sendgrid": "^5.2.3",
     "stripe": "^6.29.0"
   },
