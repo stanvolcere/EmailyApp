@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "engines": {
-    "node": "8.1.1",
-    "npm": "5.0.3"
+    "node": "10.15.3",
+    "npm": "6.4.1"
   },
   "scripts": {
     "start": "node index.js",
@@ -23,6 +23,7 @@
     "express": "^4.16.4",
     "localtunnel": "^1.9.1",
     "lodash": "^4.17.11",
+    "media-typer": "^1.1.0",
     "mongoose": "^5.5.1",
     "nodemon": "^1.18.11",
     "passport": "^0.4.0",
